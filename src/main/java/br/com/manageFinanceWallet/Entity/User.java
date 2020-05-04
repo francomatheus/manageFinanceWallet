@@ -1,4 +1,4 @@
-package br.com.manageFinanceWallet.Model;
+package br.com.manageFinanceWallet.Entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
@@ -7,16 +7,14 @@ import org.dom4j.tree.AbstractEntity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Collection;
 
 @Getter
 @Setter
 @Entity
+@Table
 public class User implements UserDetails {
 
     @Id

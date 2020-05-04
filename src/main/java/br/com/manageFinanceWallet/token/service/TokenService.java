@@ -1,8 +1,7 @@
 package br.com.manageFinanceWallet.token.service;
 
-import br.com.manageFinanceWallet.Model.User;
+import br.com.manageFinanceWallet.Entity.User;
 import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jwt;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;

@@ -1,6 +1,6 @@
 package br.com.manageFinanceWallet.Config;
 
-import br.com.manageFinanceWallet.Model.User;
+import br.com.manageFinanceWallet.Entity.User;
 import br.com.manageFinanceWallet.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

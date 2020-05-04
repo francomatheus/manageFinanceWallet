@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.List;
 
@@ -11,13 +12,16 @@ import java.util.List;
 @Setter
 @Entity
 @Table
-public class Wallet implements Serializable {
+public class WalletEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long codigo;
 
-    @ManyToMany
+    @NotNull
+    private String name;
+
+    @OneToMany(mappedBy = "walletEntity")
     private List<OperationEntity> operation;
 
 }

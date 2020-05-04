@@ -13,6 +13,7 @@ import java.time.LocalDate;
 @Setter
 @Getter
 @Entity
+@Table
 public class OperationEntity implements Serializable {
 
     @Id
@@ -39,5 +40,9 @@ public class OperationEntity implements Serializable {
     @NotNull
     @Enumerated(EnumType.STRING)
     private BrokersEnum broker;
+
+    @ManyToOne
+    @JoinColumn(name="wallet_id", referencedColumnName="codigo",nullable=false)
+    private WalletEntity walletEntity;
 
 }

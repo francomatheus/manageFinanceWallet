@@ -1,6 +1,6 @@
 package br.com.manageFinanceWallet.Security;
 
-import br.com.manageFinanceWallet.Model.User;
+import br.com.manageFinanceWallet.Entity.User;
 import br.com.manageFinanceWallet.Repository.UserRepository;
 import br.com.manageFinanceWallet.token.service.TokenService;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -12,7 +12,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Optional;
 
 public class JwtTokenFilter extends OncePerRequestFilter {
 

@@ -1,6 +1,6 @@
 package br.com.manageFinanceWallet.Repository;
 
-import br.com.manageFinanceWallet.Model.User;
+import br.com.manageFinanceWallet.Entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
