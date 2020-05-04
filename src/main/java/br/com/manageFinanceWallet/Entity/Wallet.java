@@ -11,13 +11,13 @@ import java.util.List;
 @Setter
 @Entity
 @Table
-public class Carteira implements Serializable {
+public class Wallet implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long codigo;
 
-    @OneToMany
-    private List<Ativo> ativos;
+    @ManyToMany
+    private List<OperationEntity> operation;
 
 }

@@ -1,5 +1,6 @@
 package br.com.manageFinanceWallet.Entity;
 
+import br.com.manageFinanceWallet.Entity.Enum.BrokersEnum;
 import br.com.manageFinanceWallet.Entity.Enum.OperationTypeEnum;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,14 +13,14 @@ import java.time.LocalDate;
 @Setter
 @Getter
 @Entity
-public class Ativo implements Serializable {
+public class OperationEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long codigo;
 
     @NotNull
-    private String name;
+    private String stock;
 
     private LocalDate dateOpen;
 
@@ -31,7 +32,12 @@ public class Ativo implements Serializable {
     @NotNull
     private Integer quantity;
 
+    @NotNull
     @Enumerated(EnumType.STRING)
     private OperationTypeEnum operationType;
+
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    private BrokersEnum broker;
 
 }
