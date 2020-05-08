@@ -1,6 +1,5 @@
 package br.com.manageFinanceWallet.Resource;
 
-import br.com.manageFinanceWallet.Entity.Wallet;
 import br.com.manageFinanceWallet.Model.DTO.WalletDTO;
 import br.com.manageFinanceWallet.Service.Impl.WalletServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
