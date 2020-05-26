@@ -1,39 +1,38 @@
 package br.com.manageFinanceWallet.Service.Impl;
 
 import br.com.manageFinanceWallet.Model.DTO.OptionPriceDTO;
-import br.com.manageFinanceWallet.Model.Request.OptionRequest;
+import br.com.manageFinanceWallet.Model.form.OptionForm;
 import br.com.manageFinanceWallet.Service.OptionService;
 import org.apache.commons.math3.distribution.NormalDistribution;
 import org.springframework.stereotype.Service;
 
 import static java.lang.Math.*;
-import static org.apache.commons.math3.complex.Quaternion.K;
 
 @Service
 public class OptionServiceImpl implements OptionService {
 
 
-    public OptionPriceDTO getPriceOption(OptionRequest optionRequest){
+    public OptionPriceDTO getPriceOption(OptionForm optionForm){
 
-        OptionPriceDTO optionPriceDTO = calculatedPriceOption(optionRequest);
+        OptionPriceDTO optionPriceDTO = calculatedPriceOption(optionForm);
 
         return optionPriceDTO;
     }
 
-    private OptionPriceDTO calculatedPriceOption(OptionRequest optionRequest) {
-        if (optionRequest.getType().toLowerCase().equals("call") ||
-                optionRequest.getType().toLowerCase().equals("put")) {
+    private OptionPriceDTO calculatedPriceOption(OptionForm optionForm) {
+        if (optionForm.getType().toLowerCase().equals("call") ||
+                optionForm.getType().toLowerCase().equals("put")) {
             NormalDistribution normalDistribution = new NormalDistribution(0, 1);
             // OptionPrice optionPrice = new OptionPrice();
             OptionPriceDTO optionPriceDTO = new OptionPriceDTO();
 
-            Double S = optionRequest.getPriceStock();
-            Double K = optionRequest.getPriceStrike();
-            Double r = optionRequest.getRiskFree();
-            double vol = optionRequest.getVolatility();
-            double T = optionRequest.getTime();
-            String type = optionRequest.getType();
-            int sizeYear = optionRequest.getSizeYear();
+            Double S = optionForm.getPriceStock();
+            Double K = optionForm.getPriceStrike();
+            Double r = optionForm.getRiskFree();
+            double vol = optionForm.getVolatility();
+            double T = optionForm.getTime();
+            String type = optionForm.getType();
+            int sizeYear = optionForm.getSizeYear();
 
             Double d1 = (log(S / K) + (r + pow(vol, 2) / 2) * (T / sizeYear)) / (vol * sqrt(T / sizeYear));
 
@@ -78,7 +77,7 @@ public class OptionServiceImpl implements OptionService {
 
         }
         else{
-            throw new IllegalArgumentException("Choose Call or Put");
+            throw new IllegalArgumentException("Choose type of option: call or put");
         }
 
     }

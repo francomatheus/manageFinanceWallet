@@ -2,6 +2,7 @@ package br.com.manageFinanceWallet.Service.Impl;
 
 import br.com.manageFinanceWallet.Entity.OperationEntity;
 import br.com.manageFinanceWallet.Model.DTO.OperationDTO;
+import br.com.manageFinanceWallet.Model.form.OperationForm;
 import br.com.manageFinanceWallet.Repository.OperationRepository;
 import br.com.manageFinanceWallet.Service.OperationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,14 @@ public class OperationServiceimpl implements OperationService {
         return operation;
     }
 
+    public OperationDTO createNewOperation(OperationForm operationForm){
+
+        
+
+
+        return null;
+    }
+
 
     private OperationEntity converterDTOForEntity(OperationDTO operation) {
         OperationEntity newOperation = new OperationEntity();
@@ -42,7 +51,6 @@ public class OperationServiceimpl implements OperationService {
         newOperation.setDateOpen(operation.getDateOpen());
         newOperation.setDateClose(operation.getDateClose());
         newOperation.setBroker(operation.getBroker());
-        newOperation.setWalletEntity(operation.getWalletEntity());
         return newOperation;
     }
 
@@ -58,7 +66,6 @@ public class OperationServiceimpl implements OperationService {
             newOperation.setPrice(operation.getPrice());
             newOperation.setQuantity(operation.getQuantity());
             newOperation.setStock(operation.getStock());
-            newOperation.setWalletEntity(operation.getWalletEntity());
 
             operations.add(newOperation);
         } );
@@ -76,7 +83,6 @@ public class OperationServiceimpl implements OperationService {
             operations.setPrice(all.get().getPrice());
             operations.setQuantity(all.get().getQuantity());
             operations.setStock(all.get().getStock());
-            operations.setWalletEntity(all.get().getWalletEntity());
 
             return operations;
         }

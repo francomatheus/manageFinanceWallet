@@ -21,7 +21,7 @@ public class WalletEntity implements Serializable {
     @NotNull
     private String name;
 
-    @OneToMany(mappedBy = "walletEntity")
+    @OneToMany
     private List<OperationEntity> operation;
 
 }

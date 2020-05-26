@@ -41,8 +41,4 @@ public class OperationEntity implements Serializable {
     @Enumerated(EnumType.STRING)
     private BrokersEnum broker;
 
-    @ManyToOne
-    @JoinColumn(name="wallet_id", referencedColumnName="codigo",nullable=false)
-    private WalletEntity walletEntity;
-
 }
